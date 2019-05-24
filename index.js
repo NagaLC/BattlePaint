@@ -1,4 +1,4 @@
-const prefix = "p!";
+const prefix = "!";
 const fs = require('fs');
 const Discord = require('discord.js');
 

@@ -1,4 +1,4 @@
-const prefix = "p!";
+const prefix = "!";
 const bloc = String.fromCharCode(96);
 const encapsulation = bloc + bloc + bloc;
 
