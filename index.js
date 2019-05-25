@@ -19,7 +19,7 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection();
 
 client.on('ready', () => {
-	client.user.setActivity('Paint', { type: 'PLAYING' });
+	client.user.setActivity('Paint - !help', { type: 'PLAYING' });
 });
 
 client.on('message', (message) => {
