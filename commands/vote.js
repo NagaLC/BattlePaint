@@ -27,7 +27,7 @@ module.exports = {
             const control = new CtrlPlayer(players);
             control.vote(user, (err, msg) => {
                 if(!err) {
-                    client.votes.set(message.guild.id, true);
+                    client.votes.set(message.author.id, true);
                 }
                 message.channel.send(msg);
             });
