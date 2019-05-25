@@ -79,8 +79,8 @@ module.exports = {
         const embed = new Discord.RichEmbed()
             .setColor("GREEN")
             .setTitle("PARTIE")
-            .setDescription("ON");
-            .setFooter(`La partie a lieu dans ${bloc}#battle-paint${bloc}`)
+            .setDescription("ON")
+            .setFooter(`La partie a lieu dans ${bloc}#battle-paint${bloc}`);
 
         message.channel.send(embed);
     }
