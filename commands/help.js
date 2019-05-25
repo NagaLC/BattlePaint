@@ -21,10 +21,8 @@ module.exports = {
             return message.author.send(data, { split: true })
                 .then(() => {
                     if (message.channel.type === 'dm') return;
-                    message.reply("Je t'ai envoyé un message privé avec mes commandes !");
                 })
                 .catch(error => {
-                    console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
                     message.reply("Ah ?! Je ne parviens pas à t'envoyer un messag privé. Peut être ils sont désactivé ?");
                 });
             

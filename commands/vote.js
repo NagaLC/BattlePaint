@@ -20,7 +20,7 @@ module.exports = {
             message.reply(`La partie a lieu dans le channel battle-paint.`);
             return;
         }
-        const whoIsVoting = client.votes.get(message.guild.id);
+        const whoIsVoting = client.votes.get(message.author.id);
         if (!whoIsVoting) {
             const user = message.mentions.users.array()[0];
             const { players } = message.client;

@@ -86,23 +86,17 @@ module.exports = class ControllerPlayer {
 
 	winners() {
 		let players = this.players.array();
-		if (players.length > 0) {
-			let winners = [players[0]];
-			for (var i = 0; i < players.length; i++) {
-				for (var k = 0; k < winners.length; k++) {
-					if (winners[k].vote < players[i].vote) {
-						winners[k] = players[i];
-					}
-					else if (winners[k].vote === players[i].vote) {
-						if (winners[k].user.id !== players[i].user.id) {
-							winners.push(players[i]);
-						}
-					}
-				}
+		let max = 0;
+		players.forEach((player, id) => {
+			max = player.vote > max ? player.vote : max;
+		});
+		let winners = [];
+		players.forEach((player, id) => {
+			if (player.vote === max) {
+				winners.push(player);
 			}
-			return this.list(winners);
-		}
-		return this.list([]);
+		});
+		return this.list(winners);
 	}
 
 };
