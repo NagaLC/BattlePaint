@@ -1,5 +1,6 @@
 const CtrlPlayer = require('./../controller/controllerPlayer');
 const Discord = require('discord.js');
+const Role = require('./../utils/role');
 const bloc = String.fromCharCode(96);
 
 module.exports = {
@@ -14,6 +15,10 @@ module.exports = {
             message.reply(`Aucune partie en cours (voir la commande ${bloc}start${bloc}).`);
             return;
         }
+        if (!Role.isMaster(message.guild, message.member)) {
+            message.reply(`Seul le game master a le pouvoir d'arrêter une partie !`);
+            return;
+        }
         client.start = false;
         const { players } = message.client;
         const control = new CtrlPlayer(players);
@@ -24,5 +29,9 @@ module.exports = {
             .setFooter("par " + message.author.username);        
         message.channel.send(embed);
         message.channel.send(control.winners());
+
+        Role.remove(message.guild, "Player");
+        Role.remove(message.guild, "Master");
+        Role.remove(message.guild, "Xx_N0ob_xX");
     }
 };

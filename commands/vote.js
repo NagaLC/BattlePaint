@@ -1,5 +1,6 @@
 const CtrlPlayer = require('./../controller/controllerPlayer');
 const Discord = require('discord.js');
+const Channel = require('./../utils/channel');
 const bloc = String.fromCharCode(96);
 
 module.exports = {
@@ -13,6 +14,10 @@ module.exports = {
         const client = message.client;
         if (client.start === false) {
             message.reply(`Aucune partie en cours (voir la commande ${bloc}start${bloc}).`);
+            return;
+        }
+        if(!Channel.isBattlePaint(message.guild, message.channel)) {
+            message.reply(`La partie a lieu dans le channel battle-paint.`);
             return;
         }
         const whoIsVoting = client.votes.get(message.guild.id);
