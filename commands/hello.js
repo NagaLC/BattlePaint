@@ -11,6 +11,6 @@ module.exports = {
     aliases: ['bonjour'],
     cooldown: 5,
     execute (message, args) {
-        message.reply(`${encapsulation}Bonjour, je suis BattlePaint. Je suis un bot intelligent, encore en cours de développement. Tu peux accéder à la liste de mes commandes via !help${encapsulation}`);
+        message.reply(`aime les bonnes grosses files d'attentes`);
     }
 };
