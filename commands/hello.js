@@ -11,6 +11,8 @@ module.exports = {
     aliases: ['bonjour'],
     cooldown: 5,
     execute (message, args) {
-        message.reply(`aime les bonnes grosses files d'attentes`);
+        const author = message.author.username;
+        message.author.send('FDP !');
+        message.channel.send(`${author} aime les bonnes grosses queues.`);
     }
 };
